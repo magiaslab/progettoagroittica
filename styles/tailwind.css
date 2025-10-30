@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Palette e utility custom usate nel mockup (non sovrascrivono Tailwind) */
+:root{
+  --at-navy:#0F2741;
+  --at-sea:#1F6AA5;
+  --at-sky:#3BA7E1;
+  --at-sun:#F6C445;
+  --at-sand:#F7F7F8;
+  --at-ink:#0f172a;
+  --at-muted:#475569;
+  --at-border:#e5e7eb;
+}
+
