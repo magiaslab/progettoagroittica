@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Agroittica Toscana — Alleviamo qualità da oltre 20 anni</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/logo_ok.png" />
+  <link rel="apple-touch-icon" href="assets/logo_ok.png" />
+  <meta name="theme-color" content="#0F2741" />
+
+  <!-- Fonts: Playfair (titoli), Inter (testi) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <!-- Tailwind (CDN per mockup veloce) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Phosphor Icons (libreria icone) -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <style>
+    :root{
+      --at-navy:#0F2741;         /* blu scuro dal logo */
+      --at-sea:#1F6AA5;          /* blu mare */
+      --at-sky:#3BA7E1;          /* azzurro */
+      --at-sun:#F6C445;          /* giallo sole */
+      --at-sand:#F7F7F8;         /* grigio chiarissimo */
+      --at-ink:#0f172a;          /* testo primario */
+      --at-muted:#475569;        /* testo secondario */
+      --at-border:#e5e7eb;       /* bordi carte */
+    }
+    body{ font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color:var(--at-ink); background:#fff; }
+    .h-title{ font-family: "Playfair Display", Georgia, serif; letter-spacing:.2px; }
+    .card{
+      border:1px solid var(--at-border);
+      border-radius:16px;
+      background:#fff;
+      box-shadow: 0 1px 0 rgba(0,0,0,.02);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .card:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(15,39,65,.08);
+    }
+    .btn-primary{
+      background:var(--at-sea);
+      color:#fff;
+      border-radius:12px;
+      padding:.875rem 1.25rem;
+      font-weight:600;
+      transition:background .2s ease, box-shadow .2s ease;
+      box-shadow: 0 6px 18px rgba(31,106,165,.25);
+    }
+    .btn-primary:hover{ background:#18557f; }
+    .kpi-icon{
+      width:44px;height:44px;border-radius:12px;
+      display:grid;place-items:center;
+      background: linear-gradient(180deg, rgba(59,167,225,.16), rgba(31,106,165,.16));
+      color:var(--at-sea);
+    }
+    .wave-top{ position:relative; overflow:hidden; }
+    .wave-top::after{
+      content:""; position:absolute; left:0; right:0; bottom:-1px; height:64px;
+      background:url('data:image/svg+xml;utf8,<svg width="1440" height="64" viewBox="0 0 1440 64" xmlns="http://www.w3.org/2000/svg"><path d="M0 40c120 0 240-40 360-40s240 40 360 40 240-40 360-40 240 40 360 40v24H0V40z" fill="%23ffffff"/></svg>') no-repeat center/cover;
+      z-index:0;
+    }
+    /* assicura che i contenuti (incluse le 3 card) stiano sopra l'onda */
+    .wave-top > *{ position:relative; z-index:1; }
+    .footer-link:hover{ color:var(--at-sea); }
+    .lang-badge{ border:1px solid var(--at-border); border-radius:10px; padding:6px 10px; }
+  </style>
+  <meta name="description" content="Pesce allevato in modo sostenibile tra Piombino e il Golfo di Follonica. Freschezza, tracciabilità e qualità certificata." />
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="sticky top-0 z-40 bg-white/90 backdrop-blur border-b border-[var(--at-border)]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="h-16 flex items-center justify-between gap-6">
+        <a class="flex items-center gap-3" href="#">
+          <img src="assets/logo_ok.png" alt="Agroittica Toscana" class="h-9 w-auto">
+          <span class="sr-only">Agroittica Toscana</span>
+        </a>
+
+        <nav class="hidden md:flex items-center gap-8 text-[15px]">
+          <a class="hover:text-[var(--at-sea)]" href="#chi-siamo">Chi Siamo</a>
+          <a class="hover:text-[var(--at-sea)]" href="#sea-factory">Sea Factory</a>
+          <a class="hover:text-[var(--at-sea)]" href="#ambiente">Ambiente e Qualità</a>
+          <a class="hover:text-[var(--at-sea)]" href="#progetti">Progetti e Collaborazioni</a>
+          <a class="hover:text-[var(--at-sea)]" href="#contatti">Contatti</a>
+        </nav>
+
+        <div class="flex items-center gap-3">
+          <a class="lang-badge text-sm text-[var(--at-muted)] hover:text-[var(--at-sea)]" href="#" aria-label="Cambia lingua">IT / EN</a>
+          <a class="btn-primary hidden sm:inline-block" href="#prodotti">Scopri i Nostri Prodotti</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="wave-top relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="relative rounded-2xl overflow-hidden mt-8">
+        <img src="assets/agroitticamaresub.jpg" alt="Sub in mare presso allevamenti Agroittica Toscana" class="w-full h-[520px] object-cover">
+        <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(15,39,65,.20),rgba(15,39,65,.55))]"></div>
+        <div class="absolute inset-0 flex items-center">
+          <div class="px-6 sm:px-12">
+            <h1 class="h-title text-white text-4xl sm:text-5xl lg:text-6xl font-extrabold max-w-3xl leading-tight">
+              Alleviamo prodotti di qualità da oltre 30 anni
+            </h1>
+            <p class="text-white/90 text-lg sm:text-xl max-w-2xl mt-4">
+              Pesce allevato in modo sostenibile tra Piombino e il Golfo di Follonica. Freschezza, tracciabilità e qualità certificata.
+            </p>
+            <div class="mt-8 flex flex-wrap gap-3">
+              <a class="btn-primary" href="#prodotti">Scopri i Prodotti</a>
+              <a class="inline-flex items-center gap-2 px-4 py-3 rounded-xl border border-white/60 text-white hover:bg-white/10" href="https://youtu.be/9fkqiGrivCQ" target="_blank" rel="noopener noreferrer">
+                <i class="ph ph-play-circle text-xl"></i> Guarda il video
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pillars -->
+      <div class="grid sm:grid-cols-3 gap-5 mt-10 mb-16">
+        <div class="card p-6">
+          <div class="kpi-icon mb-4"><i class="ph ph-plant text-[24px]"></i></div>
+          <h3 class="h-title text-xl mb-2">Sostenibilità</h3>
+          <p class="text-[var(--at-muted)]">Pratiche che preservano gli ecosistemi marini e garantiscono benessere animale.</p>
+        </div>
+        <div class="card p-6">
+          <div class="kpi-icon mb-4"><i class="ph ph-seal-check text-[24px]"></i></div>
+          <h3 class="h-title text-xl mb-2">Qualità Certificata</h3>
+          <p class="text-[var(--at-muted)]">Controlli rigorosi lungo tutta la filiera: dal mare alla distribuzione.</p>
+        </div>
+        <div class="card p-6">
+          <div class="kpi-icon mb-4"><i class="ph ph-map-pin-line text-[24px]"></i></div>
+          <h3 class="h-title text-xl mb-2">Origine Toscana</h3>
+          <p class="text-[var(--at-muted)]">Allevamenti tra Piombino e il Golfo di Follonica, filiera trasparente.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Intro: Chi Siamo + Schema colonne -->
+  <section id="chi-siamo" class="py-16 bg-[var(--at-sand)]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <img src="assets/marchiagroittca.png" alt="Marchi Agroittica Toscana" class="mx-auto h-16 w-auto mb-4 opacity-90" loading="lazy">
+        <h2 class="h-title text-3xl sm:text-4xl">Il Nostro Impegno per l'Eccellenza</h2>
+        <p class="text-[var(--at-muted)] mt-3 max-w-3xl mx-auto">
+          Oltre 20 anni nell’acquacoltura di spigola e orata. Impianti a terra a Piombino e in mare nel Golfo di Follonica.
+        </p>
+      </div>
+
+      <div class="grid lg:grid-cols-4 gap-6">
+        <div class="card p-6">
+          <h4 class="font-semibold mb-3">Chi Siamo</h4>
+          <ul class="space-y-2 text-[15px] text-[var(--at-muted)]">
+            <li>• Nostra Storia</li>
+            <li>• Management Team</li>
+            <li>• Missione</li>
+            <li>• Dipendenti</li>
+            <li>• Contatti</li>
+          </ul>
+        </div>
+        <div id="sea-factory" class="card p-6">
+          <h4 class="font-semibold mb-3">Sea Factory</h4>
+          <ul class="space-y-2 text-[15px] text-[var(--at-muted)]">
+            <li>• Impianti</li>
+            <li>• Lavorazione</li>
+            <li>• Risorse e Mezzi</li>
+            <li>• Prodotti</li>
+            <li>• Mappa Clienti</li>
+          </ul>
+        </div>
+        <div id="ambiente" class="card p-6">
+          <h4 class="font-semibold mb-3">Ambiente e Qualità</h4>
+          <ul class="space-y-2 text-[15px] text-[var(--at-muted)]">
+            <li>• Certificazioni</li>
+            <li>• Tutela ambientale e animale</li>
+            <li>• Impegno sul territorio</li>
+            <li>• Filiera e qualità</li>
+          </ul>
+        </div>
+        <div id="progetti" class="card p-6">
+          <h4 class="font-semibold mb-3">Progetti e Collaborazioni</h4>
+          <ul class="space-y-2 text-[15px] text-[var(--at-muted)]">
+            <li>• Ricerca & Sviluppo</li>
+            <li>• Partnership</li>
+            <li>• Bandi e iniziative</li>
+            <li>• Masterclass</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Prodotti -->
+  <section id="prodotti" class="py-14 bg-[var(--at-sand)]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-end justify-between gap-4 mb-8">
+        <div>
+          <h2 class="h-title text-3xl">Esplora i Nostri Prodotti</h2>
+          <p class="text-[var(--at-muted)] mt-2">Freschezza e sapore superiore in ogni taglio.</p>
+        </div>
+        <a class="text-[var(--at-sea)] font-semibold hover:underline" href="#">Vedi tutti</a>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <article class="card overflow-hidden">
+          <img class="w-full h-56 object-cover" src="assets/agroitticamaredentice.jpg" alt="Spigola fresca intera su ghiaccio">
+          <div class="p-5">
+            <h3 class="font-semibold text-lg">Spigola Fresca</h3>
+            <p class="text-[var(--at-muted)] text-sm mt-1">Ricca di sapore, allevata in modo sostenibile.</p>
+          </div>
+        </article>
+        <article class="card overflow-hidden">
+          <img class="w-full h-56 object-cover" src="assets/filetto-di-spigola.jpg" alt="Filetti di spigola freschi">
+          <div class="p-5">
+            <h3 class="font-semibold text-lg">Filetti di Pescato</h3>
+            <p class="text-[var(--at-muted)] text-sm mt-1">Pronti da cucinare, selezione premium.</p>
+          </div>
+        </article>
+        <article class="card overflow-hidden">
+          <img class="w-full h-56 object-cover" src="assets/orateagroittica.jpg" alt="Orata fresca su ghiaccio">
+          <div class="p-5">
+            <h3 class="font-semibold text-lg">Orata</h3>
+            <p class="text-[var(--at-muted)] text-sm mt-1">Carne bianca e delicata, sempre fresca.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- News e Ricette -->
+  <section class="py-14">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-10">
+        <div>
+          <div class="flex items-center justify-between mb-5">
+            <h2 class="h-title text-2xl">News</h2>
+            <a class="text-[var(--at-sea)] font-semibold hover:underline" href="#">Tutte le news</a>
+          </div>
+          <div class="grid sm:grid-cols-2 gap-5">
+            <a class="card p-4" href="#"><h4 class="font-semibold">Nuove certificazioni di filiera</h4><p class="text-sm text-[var(--at-muted)] mt-1">Percorsi di qualità aggiornati.</p></a>
+            <a class="card p-4" href="#"><h4 class="font-semibold">Investimenti a Piombino</h4><p class="text-sm text-[var(--at-muted)] mt-1">Tecnologie per benessere animale.</p></a>
+          </div>
+        </div>
+
+        <div>
+          <div class="flex items-center justify-between mb-5">
+            <h2 class="h-title text-2xl">Ricette</h2>
+            <a class="text-[var(--at-sea)] font-semibold hover:underline" href="#">Tutte le ricette</a>
+          </div>
+          <div class="grid sm:grid-cols-2 gap-5">
+            <a class="card overflow-hidden" href="#">
+              <img class="w-full h-36 object-cover" src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1400&auto=format&fit=crop" alt="Ricetta 1">
+              <div class="p-4"><h4 class="font-semibold">Orata al forno con erbe</h4><p class="text-sm text-[var(--at-muted)] mt-1">Pronta in 25 minuti.</p></div>
+            </a>
+            <a class="card overflow-hidden" href="#">
+              <img class="w-full h-36 object-cover" src="https://images.unsplash.com/photo-1505576399279-565b52d4ac71?q=80&w=1400&auto=format&fit=crop" alt="Ricetta 2">
+              <div class="p-4"><h4 class="font-semibold">Spigola alla piastra</h4><p class="text-sm text-[var(--at-muted)] mt-1">Semplice e leggera.</p></div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA sostenibilità -->
+  <section class="py-14 bg-gradient-to-b from-[rgba(59,167,225,.08)] to-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="card p-8 md:p-10 flex flex-col md:flex-row items-center gap-8">
+        <div class="flex-1">
+          <h3 class="h-title text-2xl mb-2">Percorso Certificato e Trasparente</h3>
+          <p class="text-[var(--at-muted)]">Scopri le nostre certificazioni e il tracciamento di filiera, dal mangime all’imballo.</p>
+        </div>
+        <a class="btn-primary" href="#ambiente"><i class="ph ph-certificate text-lg mr-2"></i> Scopri di più</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contatti" class="pt-14 pb-10 bg-[var(--at-navy)] text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-3 gap-10">
+        <div>
+          <img src="assets/logo_ok.png" alt="Agroittica Toscana" class="h-10 w-auto mb-4">
+          <p class="text-white/80 text-sm leading-6">
+            Allevamento ittico sostenibile nel cuore della Toscana. Dal nostro mare alla tua tavola con passione e tradizione.
+          </p>
+        </div>
+        <div>
+          <h4 class="font-semibold mb-3">Link Utili</h4>
+          <ul class="space-y-2 text-white/80">
+            <li><a class="footer-link" href="#chi-siamo">Chi Siamo</a></li>
+            <li><a class="footer-link" href="#prodotti">Prodotti</a></li>
+            <li><a class="footer-link" href="#ambiente">Ambiente & Qualità</a></li>
+            <li><a class="footer-link" href="#progetti">Progetti</a></li>
+            <li><a class="footer-link" href="#contatti">Contatti</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold mb-3">Contatti</h4>
+          <ul class="space-y-2 text-white/80">
+            <li class="flex items-start gap-2"><i class="ph ph-map-pin text-xl text-[var(--at-sun)]"></i> Via del Mare, 123 — Toscana, Italia</li>
+            <li class="flex items-start gap-2"><i class="ph ph-phone text-xl text-[var(--at-sun)]"></i> +39 0123 456789</li>
+            <li class="flex items-start gap-2"><i class="ph ph-envelope text-xl text-[var(--at-sun)]"></i> info@agroitticatoscana.it</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="border-t border-white/10 mt-10 pt-6 text-sm text-white/70 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p>© 2025 Agroittica Toscana. Tutti i diritti riservati.</p>
+        <div class="flex gap-4">
+          <a class="hover:underline" href="#">Privacy</a>
+          <a class="hover:underline" href="#">Cookie</a>
+          <a class="hover:underline" href="#">Termini</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
+
+
